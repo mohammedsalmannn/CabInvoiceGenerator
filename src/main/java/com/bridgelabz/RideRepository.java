@@ -1,20 +1,23 @@
 package com.bridgelabz;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RideRepository {
-    Map<String, ArrayList<Ride>> userRides;
+    Map<String, ArrayList<Ride>> userRide = null;
 
     public RideRepository() {
-        this.userRides = new HashMap<>();
+        this.userRide = new HashMap<>();
     }
 
-    public void addRide(String userId, Ride[] rides) {
-        this.userRides.put(userId, new ArrayList<>(Arrays.asList(rides)));
+    public void addRides(String userId, Ride[] rides) {
+        this.userRide.put(userId, new ArrayList<>((Arrays.asList(rides))));
     }
 
     public Ride[] getRides(String userId) {
-        return this.userRides.get(userId).toArray(new Ride[0]);
+        return this.userRide.get(userId).toArray(new Ride[0]);
     }
 }
